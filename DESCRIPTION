@@ -1,0 +1,17 @@
+Package: crossRefTools
+Type: Package
+Title: Crossref helper package
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <shihikoo@gmail.com>
+Description: Some functions retrive data from crossref with dois.
+   Output is a dataframe.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: rcrossref, retractcheck, tidyr
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
