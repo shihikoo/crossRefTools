@@ -66,6 +66,5 @@ find_dois <- function(query, limit = 1){
     myData <- rcrossref::cr_works(query = query, limit = 1)
     doi <- myData$data$doi
     title <- myData$data$title
-    if(agrepl(query, title)) return(doi)
-  return(NULL)
+    return(doi)
 }
