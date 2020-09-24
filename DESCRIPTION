@@ -1,4 +1,4 @@
-Package: crossRefTools
+Package: crossrefTools
 Type: Package
 Title: Crossref helper package
 Version: 0.1.0

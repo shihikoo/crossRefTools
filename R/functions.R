@@ -1,5 +1,3 @@
-
-
 #' extract_df_crossref
 #'
 #' @param dois  a list of dois
