@@ -17,7 +17,7 @@ extract_df_crossref <- function(dois){
 
   resultList <- rcrossref::cr_cn(dois, "citeproc-json-ish")
   resultLong <- do.call(rbind, lapply(resultList,function(x){
-    data.frame(doi= x$DOI, varname = names(x), varvalue = as.character(x) )
+    data.frame(doi= x["DOI"], varname = names(x), varvalue = as.character(x), drop = F)
   }))
 
   resultWide <- tidyr::spread(resultLong, key="varname", value = "varvalue")
@@ -41,4 +41,31 @@ extract_df_crossref <- function(dois){
   })
 
   return(resultWide)
+}
+
+
+#' find_dois
+#'
+#' @param query  query
+#' @param limit number papers to extract
+#'
+#' @return a data fraem
+#' @export find_dois
+#'
+#'@import rcrossref
+#'
+#' @examples
+#' query <- "Survival in frontotemporal lobar degeneration and related disorders: latent class predictors and brain functional correlates"
+#' find_dois(query = query)
+#'
+#' queryList <- c("COVID-19 and Myocarditis: What Do We Know So Far?", "Neurologic complications of COVID-19")
+#' sapply(queryList, find_dois)
+#'
+find_dois <- function(query, limit = 1){
+  if(length(query) == 0 ) return(NULL)
+    myData <- rcrossref::cr_works(query = query, limit = 1)
+    doi <- myData$data$doi
+    title <- myData$data$title
+    if(agrepl(query, title)) return(doi)
+  return(NULL)
 }
