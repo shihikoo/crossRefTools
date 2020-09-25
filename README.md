@@ -1,4 +1,4 @@
-# crossRefTools-
+# crossrefTools
 
 Tools to retrive data from crossref with dois into data frame
 
