@@ -2,6 +2,8 @@
 
 Tools to retrive data from crossref with dois into data frame
 
+
+```r
 install.packages("devtools")
 devtools::install_github("shihikoo/crossrefTools")
 library(crossrefTools)
