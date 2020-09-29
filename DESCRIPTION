@@ -9,7 +9,7 @@ Description: Some functions retrive data from crossref with dois.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: rcrossref, retractcheck, tidyr
+Imports: rcrossref, retractcheck, tidyr, stringdist
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,

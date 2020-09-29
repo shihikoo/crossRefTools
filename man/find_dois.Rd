@@ -4,12 +4,21 @@
 \alias{find_dois}
 \title{find_dois}
 \usage{
-find_dois(query, limit = 1)
+find_dois(
+  input_title,
+  input_year = NA,
+  limit = 2,
+  title_distance_threshold = 0.93
+)
 }
 \arguments{
-\item{query}{query}
+\item{input_title}{input title to serach for}
+
+\item{input_year}{input year to search for}
 
 \item{limit}{number papers to extract}
+
+\item{title_distance_threshold}{a double number. The treshold of the distance between true title and false}
 }
 \value{
 a data fraem
@@ -18,10 +27,8 @@ a data fraem
 find_dois
 }
 \examples{
-query <- "Survival in frontotemporal lobar degeneration and related disorders: latent class predictors and brain functional correlates"
-find_dois(query = query)
-
-queryList <- c("COVID-19 and Myocarditis: What Do We Know So Far?", "Neurologic complications of COVID-19")
-sapply(queryList, find_dois)
+input_title <- "Survival in frontotemporal lobar degeneration and related disorders"
+input_year <- 2009
+find_dois(input_title, input_year)
 
 }
