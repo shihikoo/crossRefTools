@@ -21,7 +21,8 @@ extract_df_crossref <- function(dois){
   if(length(dois) ==1 ) resultList <- list(resultList)
   
   resultLong <- do.call(rbind, lapply(resultList, function(x){
-    data.frame(doi= x["DOI"], varname = names(x), varvalue = as.character(x), drop = F)
+    if("doi" %in% names(x)) return(NULL)
+    return(data.frame(doi= x["DOI"], varname = names(x), varvalue = as.character(x)))
   }))
   
   resultWide <- tidyr::spread(resultLong, key="varname", value = "varvalue")
